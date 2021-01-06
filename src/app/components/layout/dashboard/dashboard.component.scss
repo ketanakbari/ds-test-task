@@ -16,8 +16,8 @@
   &__image {
 
     img {
-      width: 100px;
-      height: 100px;
+      width: 75px;
+      height: 75px;
       border-radius: 50%;
       object-fit: cover;
     }
@@ -30,5 +30,12 @@
       max-width: 800px !important;
       max-height: 500px !important;
     }
+  }
+
+  &__chart-title {
+    font-size: 18px;
+    font-weight: 300;
+    opacity: .8;
+    margin-bottom: 20px;
   }
 }
