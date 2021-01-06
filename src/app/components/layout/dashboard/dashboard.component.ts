@@ -65,6 +65,7 @@ export class DashboardComponent implements OnInit {
 
   private prepareBarChartData(userAssessmentGraph: any): void {
     const barChartData = [];
+    this.barChartLabels = [];
     for (const graphData in userAssessmentGraph.data) {
       if (graphData) {
         this.barChartLabels.push(graphData);

@@ -8,7 +8,8 @@
   </div>
   <div class="row mt-4">
     <div class="col-6">
-      <div class="dashboard__container" *ngFor="let userAssessment of userAssessments">
+      <div class="dashboard__container" *ngFor="let userAssessment of userAssessments"
+           (click)="onGetUserAssessmentGraph(userAssessment.id)">
         <div class="dashboard__image">
           <img [src]="userAssessment.image_url">
         </div>
