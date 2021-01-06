@@ -23,8 +23,8 @@ export class AuthInterceptor implements HttpInterceptor {
       .pipe(
         catchError((err: HttpErrorResponse) => {
           console.log('err', err);
-          if (err.status === 401) {
-            localStorage.setItem(environment.authTokenKey, '');
+          if (err.status === 401 || err.status === 405) {
+            localStorage.clear();
             this.router.navigate(['/auth/login']);
           }
           return throwError(err);

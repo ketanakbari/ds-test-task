@@ -2,6 +2,8 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AuthComponent} from './components/auth/auth.component';
 import {LayoutComponent} from './components/layout/layout.component';
+import {AuthGuard} from './services/guards/auth.guard';
+import {GuestGuard} from './services/guards/guest.guard';
 
 const routes: Routes = [
   {
@@ -12,6 +14,7 @@ const routes: Routes = [
   {
     path: 'auth',
     component: AuthComponent,
+    canActivate: [GuestGuard],
     children: [
       {
         path: '',
@@ -22,6 +25,7 @@ const routes: Routes = [
   {
     path: 'app',
     component: LayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
