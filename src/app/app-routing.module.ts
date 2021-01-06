@@ -4,6 +4,7 @@ import {AuthComponent} from './components/auth/auth.component';
 import {LayoutComponent} from './components/layout/layout.component';
 import {AuthGuard} from './services/guards/auth.guard';
 import {GuestGuard} from './services/guards/guest.guard';
+import {NotFoundRouteComponent} from './components/not-found-route/not-found-route.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,11 @@ const routes: Routes = [
         loadChildren: () => import('./components/layout/layout.module').then(m => m.LayoutModule)
       }
     ]
+  },
+  {path: '**', redirectTo: '404', pathMatch: 'full'},
+  {
+    path: '404',
+    component: NotFoundRouteComponent,
   },
 ];
 

@@ -8,12 +8,14 @@ import {AuthComponent} from './components/auth/auth.component';
 import {LayoutComponent} from './components/layout/layout.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './services/auth-interceptor.service';
+import {NotFoundRouteComponent} from './components/not-found-route/not-found-route.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    LayoutComponent
+    LayoutComponent,
+    NotFoundRouteComponent
   ],
   imports: [
     BrowserModule,
