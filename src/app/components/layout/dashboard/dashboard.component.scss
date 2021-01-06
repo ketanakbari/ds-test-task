@@ -1,0 +1,25 @@
+.dashboard {
+  padding: 25px;
+
+  &__container {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__name {
+    font-size: 22px;
+    font-weight: 500;
+    margin-left: 25px;
+  }
+
+  &__image {
+
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+}

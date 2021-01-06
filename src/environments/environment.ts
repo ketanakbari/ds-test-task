@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   apiBaseUrl: 'https://ds-test-api.herokuapp.com/api',
+  authTokenKey: 'ds-user-token'
 };
 
 /*

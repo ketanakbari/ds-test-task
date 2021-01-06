@@ -1,1 +1,8 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+  <div class="dashboard__container" *ngFor="let userAssessment of userAssessments">
+    <div class="dashboard__image">
+      <img [src]="userAssessment.image_url">
+    </div>
+    <div class="dashboard__name">{{userAssessment.name}}</div>
+  </div>
+</div>

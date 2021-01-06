@@ -4,6 +4,9 @@ import {AuthService} from '../../../services/auth.service';
 import {finalize} from 'rxjs/operators';
 import {Router} from '@angular/router';
 import {checkFormControlHasError} from '../../../shared/check-form-control-has-error';
+import {environment} from '../../../../environments/environment';
+import {User} from '../../../models/user.model';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -47,9 +50,10 @@ export class LoginComponent implements OnInit {
       finalize(() => {
         this.isProcessing = false;
       })
-    ).subscribe((res: any) => {
+    ).subscribe((user: User) => {
+      localStorage.setItem(environment.authTokenKey, user.token);
       this.router.navigate([`/app/dashboard`]);
-    }, (errors: any) => {
+    }, (errors: HttpErrorResponse) => {
       console.log('errors', errors);
     });
   }

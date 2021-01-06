@@ -2,15 +2,15 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
-import {User} from '../models/user.model';
+import {UserAssessment} from '../models/userassessments.model';
 
 @Injectable()
-export class AuthService {
+export class AppService {
 
   constructor(private http: HttpClient) {
   }
 
-  login(data: { email: string, password: string }): Observable<User> {
-    return this.http.post<User>(`${environment.apiBaseUrl}/login`, data);
+  getUserAssessments(): Observable<UserAssessment[]> {
+    return this.http.get<UserAssessment[]>(`${environment.apiBaseUrl}/userassessments`);
   }
 }
