@@ -5,4 +5,14 @@
     </div>
     <div class="dashboard__name">{{userAssessment.name}}</div>
   </div>
+  <div class="dashboard__chart-wrapper">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+    </canvas>
+  </div>
 </div>

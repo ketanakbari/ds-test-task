@@ -1,5 +1,5 @@
 .dashboard {
-  padding: 25px;
+  padding: 25px 25px 25px 50px;
 
   &__container {
     margin-top: 25px;
@@ -20,6 +20,15 @@
       height: 100px;
       border-radius: 50%;
       object-fit: cover;
+    }
+  }
+
+  &__chart-wrapper {
+    margin-top: 40px;
+
+    canvas {
+      max-width: 800px !important;
+      max-height: 500px !important;
     }
   }
 }
