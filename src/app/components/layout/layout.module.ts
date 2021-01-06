@@ -8,19 +8,21 @@ import {ChartsModule} from 'ng2-charts';
 import {UsersComponent} from './users/users.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
+import {MatTableExporterModule} from 'mat-table-exporter';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    UsersComponent
+    UsersComponent,
   ],
   imports: [
     CommonModule,
     LayoutRoutingModule,
     ChartsModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatTableExporterModule
   ],
   providers: [
     AppService

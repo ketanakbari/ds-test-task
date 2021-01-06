@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {AppService} from '../../../services/app.service';
 import {UserForAdmin} from '../../../models/userForAdmin.model';
 import {User} from '../../../models/user.model';
@@ -6,6 +6,7 @@ import {userObj} from '../../../shared/get-logged-user';
 import {Router} from '@angular/router';
 import {HttpErrorResponse} from '@angular/common/http';
 import {exportErrorMessage} from '../../../shared/sweet-alert-msg';
+import {MatTableExporterDirective} from 'mat-table-exporter';
 
 @Component({
   selector: 'app-users',
@@ -16,6 +17,7 @@ export class UsersComponent implements OnInit {
   users: UserForAdmin[] | any = [];
   displayedColumns: string[] = ['first_name', 'last_name', 'email', 'groups'];
   loggedUser?: User;
+  @ViewChild(MatTableExporterDirective) exporter: MatTableExporterDirective | undefined;
 
   constructor(private appService: AppService, private router: Router) {
   }
@@ -38,6 +40,11 @@ export class UsersComponent implements OnInit {
     }, (errors: HttpErrorResponse) => {
       exportErrorMessage(errors.error.error);
     });
+  }
+
+  exportTable(): void {
+    // @ts-ignore
+    this.exporter.exportTable();
   }
 
 }
