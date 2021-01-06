@@ -7,7 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthComponent} from './components/auth/auth.component';
 import {LayoutComponent} from './components/layout/layout.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {AuthInterceptor} from './auth-interceptor.service';
+import {AuthInterceptor} from './services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
