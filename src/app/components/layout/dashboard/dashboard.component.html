@@ -4,21 +4,27 @@
     <button mat-raised-button color="primary" class="dashboard__admin-btn" (click)="goToUsers()">Go to Users</button>
     <button mat-raised-button color="seconday" class="ml-auto" (click)="onLogout()">Logout</button>
   </div>
-  <div class="dashboard__container" *ngFor="let userAssessment of userAssessments">
-    <div class="dashboard__image">
-      <img [src]="userAssessment.image_url">
+  <div class="row mt-4">
+    <div class="col-6">
+      <div class="dashboard__container" *ngFor="let userAssessment of userAssessments">
+        <div class="dashboard__image">
+          <img [src]="userAssessment.image_url">
+        </div>
+        <div class="dashboard__name">{{userAssessment.name}}</div>
+      </div>
     </div>
-    <div class="dashboard__name">{{userAssessment.name}}</div>
-  </div>
-  <div class="dashboard__chart-wrapper">
-    <div class="dashboard__chart-title">User Assessment Bar Chart</div>
-    <canvas baseChart
-            [datasets]="barChartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [plugins]="barChartPlugins"
-            [legend]="barChartLegend"
-            [chartType]="barChartType">
-    </canvas>
+    <div class="col-6">
+      <div class="dashboard__chart-wrapper">
+        <div class="dashboard__chart-title">User Assessment Bar Chart</div>
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+        </canvas>
+      </div>
+    </div>
   </div>
 </div>
