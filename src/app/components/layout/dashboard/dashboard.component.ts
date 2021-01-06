@@ -6,6 +6,8 @@ import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 import {Label} from 'ng2-charts';
 import {UserAssessmentGraph} from '../../../models/userassessmentGraph.model';
 import {Router} from '@angular/router';
+import {User} from '../../../models/user.model';
+import {userObj} from '../../../shared/get-logged-user';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,12 +26,14 @@ export class DashboardComponent implements OnInit {
   barChartData: ChartDataSets[] = [
     {data: [], label: 'User Assessment Bar Chart'}
   ];
+  loggedUser?: User;
 
   constructor(private appService: AppService,
               private router: Router) {
   }
 
   ngOnInit(): void {
+    this.loggedUser = userObj();
     this.onGetUserAssessments();
   }
 

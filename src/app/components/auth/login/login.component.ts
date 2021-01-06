@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
       })
     ).subscribe((user: User) => {
       localStorage.setItem(environment.authTokenKey, user.token);
+      localStorage.setItem(environment.dsUserObj, JSON.stringify(user));
       this.router.navigate([`/app/dashboard`]);
     }, (errors: HttpErrorResponse) => {
       console.log('errors', errors);
