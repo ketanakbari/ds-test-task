@@ -1,1 +1,48 @@
-<p>login works!</p>
+<div class="login">
+  <div class="login__container">
+    <form [formGroup]="loginForm" class="w-100">
+      <div class="login__title">Login</div>
+      <div class="form-group">
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Email" type="email" formControlName="email">
+        </mat-form-field>
+        <div *ngIf="isControlHasError('email','required')" class="form-field-err-text">
+          Email is required
+        </div>
+        <div *ngIf="isControlHasError('email','email')" class="form-field-err-text">
+          Please enter valid email
+        </div>
+        <div *ngIf="isControlHasError('email','minlength') &&
+                                !isControlHasError('email','email')" class="form-field-err-text">
+          Minimum field length: 3
+        </div>
+        <div *ngIf="isControlHasError('email','maxlength') &&
+                                !isControlHasError('email','email')" class="form-field-err-text">
+          Maximum field length: 320
+        </div>
+      </div>
+      <div class="form-group">
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Password" type="password" formControlName="password">
+        </mat-form-field>
+        <div *ngIf="isControlHasError('password','required')" class="form-field-err-text">
+          Password is required
+        </div>
+        <div *ngIf="isControlHasError('password','minlength')" class="form-field-err-text">
+          Minimum field length: 6
+        </div>
+        <div *ngIf="isControlHasError('password','maxlength')" class="form-field-err-text">
+          Maximum field length: 100
+        </div>
+      </div>
+      <div class="login__login-btn">
+        <button mat-raised-button color="primary" class="btn-block" (click)="onLogin()"
+                [disabled]="isProcessing || loginForm.invalid">
+          Login
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

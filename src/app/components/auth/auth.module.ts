@@ -3,6 +3,10 @@ import {CommonModule} from '@angular/common';
 
 import {AuthRoutingModule} from './auth-routing.module';
 import {LoginComponent} from './login/login.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {AuthService} from '../../services/auth.service';
 
 
 @NgModule({
@@ -11,7 +15,14 @@ import {LoginComponent} from './login/login.component';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatButtonModule
+  ],
+  providers: [
+    AuthService
   ]
 })
 export class AuthModule {
