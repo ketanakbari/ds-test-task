@@ -1,4 +1,9 @@
 <div class="dashboard">
+  <div class="dashboard__admin-box">
+    <div class="dashboard__admin-text">You are an <strong>Admin</strong>, you can manage users</div>
+    <button mat-raised-button color="primary" class="dashboard__admin-btn" (click)="goToUsers()">Go to Users</button>
+    <button mat-raised-button color="seconday" class="ml-auto" (click)="onLogout()">Logout</button>
+  </div>
   <div class="dashboard__container" *ngFor="let userAssessment of userAssessments">
     <div class="dashboard__image">
       <img [src]="userAssessment.image_url">

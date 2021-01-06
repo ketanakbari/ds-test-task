@@ -1,6 +1,19 @@
 .dashboard {
   padding: 25px 25px 25px 50px;
 
+  &__admin-box {
+    display: flex;
+    align-items: center;
+  }
+
+  &__admin-text {
+    font-size: 20px;
+  }
+
+  &__admin-btn {
+    margin-left: 25px;
+  }
+
   &__container {
     margin-top: 25px;
     display: flex;

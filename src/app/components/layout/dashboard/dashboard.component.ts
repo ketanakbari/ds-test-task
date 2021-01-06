@@ -5,6 +5,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 import {Label} from 'ng2-charts';
 import {UserAssessmentGraph} from '../../../models/userassessmentGraph.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,7 +25,8 @@ export class DashboardComponent implements OnInit {
     {data: [], label: 'User Assessment Bar Chart'}
   ];
 
-  constructor(private appService: AppService) {
+  constructor(private appService: AppService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -46,6 +48,15 @@ export class DashboardComponent implements OnInit {
     }, (errors: HttpErrorResponse) => {
       console.log('errors', errors);
     });
+  }
+
+  goToUsers(): void {
+    this.router.navigate([`/app/users`]);
+  }
+
+  onLogout(): void {
+    localStorage.clear();
+    this.router.navigate([`/auth/login`]);
   }
 
   private prepareBarChartData(userAssessmentGraph: any): void {
