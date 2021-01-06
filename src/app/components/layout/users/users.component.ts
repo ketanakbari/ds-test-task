@@ -4,6 +4,8 @@ import {UserForAdmin} from '../../../models/userForAdmin.model';
 import {User} from '../../../models/user.model';
 import {userObj} from '../../../shared/get-logged-user';
 import {Router} from '@angular/router';
+import {HttpErrorResponse} from '@angular/common/http';
+import {exportErrorMessage} from '../../../shared/sweet-alert-msg';
 
 @Component({
   selector: 'app-users',
@@ -33,8 +35,8 @@ export class UsersComponent implements OnInit {
     this.appService.getUsers().subscribe((users: UserForAdmin[]) => {
       console.log('users', users);
       this.users = users;
-    }, (errors: any) => {
-      console.log('errors', errors);
+    }, (errors: HttpErrorResponse) => {
+      exportErrorMessage(errors.error.error);
     });
   }
 

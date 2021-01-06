@@ -7,6 +7,7 @@ import {checkFormControlHasError} from '../../../shared/check-form-control-has-e
 import {environment} from '../../../../environments/environment';
 import {User} from '../../../models/user.model';
 import {HttpErrorResponse} from '@angular/common/http';
+import {exportErrorMessage} from '../../../shared/sweet-alert-msg';
 
 @Component({
   selector: 'app-login',
@@ -55,7 +56,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem(environment.dsUserObj, JSON.stringify(user));
       this.router.navigate([`/app/dashboard`]);
     }, (errors: HttpErrorResponse) => {
-      console.log('errors', errors);
+      exportErrorMessage(errors.error.error);
     });
   }
 

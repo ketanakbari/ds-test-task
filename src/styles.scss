@@ -11,3 +11,56 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   padding-top: 3px;
   font-weight: 500;
 }
+
+
+.sw-container-class {
+  background: red;
+
+  .swal2-icon {
+    min-width: 62px;
+  }
+
+  .swal2-popup {
+    padding: 0;
+  }
+
+  .swal2-popup .swal2-icon {
+    margin: .5rem;
+  }
+
+  .swal2-header {
+    padding-left: 15px;
+    flex-direction: row;
+    overflow: hidden;
+  }
+
+  .swal2-title {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .swal2-popup .swal2-title {
+    margin: 0;
+  }
+
+  .swal2-popup .swal2-content {
+    display: none;
+  }
+
+  .swal2-popup .swal2-actions {
+    margin: 0 auto 1rem auto;
+
+    .swal2-cancel {
+      background-color: #c42341;
+      border-color: #c42341;
+      color: #ffffff;
+    }
+
+    .swal2-confirm {
+      background-color: #056c68;
+      border-color: #056c68;
+      color: #ffffff;
+      margin-left: 15px;
+    }
+  }
+}

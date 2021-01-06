@@ -8,6 +8,7 @@ import {UserAssessmentGraph} from '../../../models/userassessmentGraph.model';
 import {Router} from '@angular/router';
 import {User} from '../../../models/user.model';
 import {userObj} from '../../../shared/get-logged-user';
+import {exportErrorMessage} from '../../../shared/sweet-alert-msg';
 
 @Component({
   selector: 'app-dashboard',
@@ -42,7 +43,7 @@ export class DashboardComponent implements OnInit {
       this.userAssessments = userAssessments;
       this.onGetUserAssessmentGraph(this.userAssessments[0].id);
     }, (errors: HttpErrorResponse) => {
-      console.log('errors', errors);
+      exportErrorMessage(errors.error.error);
     });
   }
 
@@ -50,7 +51,7 @@ export class DashboardComponent implements OnInit {
     this.appService.getUserAssessmentGraph(id).subscribe((userAssessmentGraph: UserAssessmentGraph) => {
       this.prepareBarChartData(userAssessmentGraph);
     }, (errors: HttpErrorResponse) => {
-      console.log('errors', errors);
+      exportErrorMessage(errors.error.error);
     });
   }
 
